@@ -12,7 +12,7 @@ const config = {
 }
 
 // 登录服务器
-router.get('https://johninch.github.io/github/login', async (ctx) => {
+router.get('/github/login', async (ctx) => {
     // 重定向到第三方认证接口，并配置参数
     var path = "https://github.com/login/oauth/authorize";
     path += '?client_id=' + config.client_id;
@@ -22,7 +22,7 @@ router.get('https://johninch.github.io/github/login', async (ctx) => {
 })
 
 // 第三方认证服务器，向登录服务器发回调请求，并带回认证code
-router.get('https://johninch.github.io/auth/github/callback', async (ctx) => {
+router.get('/auth/github/callback', async (ctx) => {
     console.log('callback...')
     const code = ctx.query.code;
     const params = {
